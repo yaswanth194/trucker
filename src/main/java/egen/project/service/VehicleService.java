@@ -1,6 +1,10 @@
 package egen.project.service;
 
 import egen.project.entity.Vehicle;
+
+import java.util.List;
+
 public interface VehicleService {
-    void update(Vehicle each[]);
+    public void update(Vehicle each[]);
+    public List<Vehicle> getAllVehicles();
 }
