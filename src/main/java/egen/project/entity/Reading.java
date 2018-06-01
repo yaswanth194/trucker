@@ -10,11 +10,12 @@ public class Reading {
     private int latitude;
     private int longitude;
     private Timestamp timestamp;
-    private int fuelVolume;
+    private float fuelVolume;
     private int speed;
     private int engineHp;
     private boolean checkEngineLightOn;
     private boolean cruiseControlOn;
+    private boolean engineCoolantLow;
     private int engineRpm;
     private Tires tires;
 
@@ -22,7 +23,7 @@ public class Reading {
 
     }
 
-    public Reading(String vin, int latitude, int longitude, Timestamp timestamp, int fuelVolume, int speed, int engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, int engineRpm, Tires tires) {
+    public Reading(String vin, int latitude, int longitude, Timestamp timestamp, float fuelVolume, int speed, int engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, boolean engineCoolantLow, int engineRpm, Tires tires) {
         this.vin = vin;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -32,6 +33,7 @@ public class Reading {
         this.engineHp = engineHp;
         this.checkEngineLightOn = checkEngineLightOn;
         this.cruiseControlOn = cruiseControlOn;
+        this.engineCoolantLow = engineCoolantLow;
         this.engineRpm = engineRpm;
         this.tires = tires;
     }
@@ -68,11 +70,11 @@ public class Reading {
         this.timestamp = timestamp;
     }
 
-    public int getFuelVolume() {
+    public float getFuelVolume() {
         return fuelVolume;
     }
 
-    public void setFuelVolume(int fuelVolume) {
+    public void setFuelVolume(float fuelVolume) {
         this.fuelVolume = fuelVolume;
     }
 
@@ -106,6 +108,14 @@ public class Reading {
 
     public void setCruiseControlOn(boolean cruiseControlOn) {
         this.cruiseControlOn = cruiseControlOn;
+    }
+
+    public boolean isEngineCoolantLow() {
+        return engineCoolantLow;
+    }
+
+    public void setEngineCoolantLow(boolean engineCoolantLow) {
+        this.engineCoolantLow = engineCoolantLow;
     }
 
     public int getEngineRpm() {

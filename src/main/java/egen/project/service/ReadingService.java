@@ -5,5 +5,6 @@ import org.springframework.stereotype.Service;
 
 public interface ReadingService {
     public void update(Reading read);
+    public void checkAlerts(Reading read);
 
 }

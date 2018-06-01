@@ -11,19 +11,19 @@ public class Vehicle {
     private String make;
     private String model;
     private int year;
-    private int redlineRpm;
-    private int maxFuelVolume;
+    private int readlineRpm;
+    private float maxFuelVolume;
     private Timestamp lastServiceDate;
 
     protected Vehicle(){
 
     }
-    Vehicle(String vin, String make, String model, int year, int redlineRpm, int maxFuelVolume, Timestamp lastServiceDate){
+    Vehicle(String vin, String make, String model, int year, int readlineRpm, float maxFuelVolume, Timestamp lastServiceDate){
         this.vin=vin;
         this.make=make;
         this.model=model;
         this.year=year;
-        this.redlineRpm=redlineRpm;
+        this.readlineRpm=readlineRpm;
         this.maxFuelVolume=maxFuelVolume;
         this.lastServiceDate=lastServiceDate;
     }
@@ -60,19 +60,19 @@ public class Vehicle {
         this.year = year;
     }
 
-    public int getRedlineRpm() {
-        return redlineRpm;
+    public int getReadlineRpm() {
+        return readlineRpm;
     }
 
-    public void setRedlineRpm(int redlineRpm) {
-        this.redlineRpm = redlineRpm;
+    public void setReadlineRpm(int readlineRpm) {
+        this.readlineRpm = readlineRpm;
     }
 
-    public int getMaxFuelVolume() {
+    public float getMaxFuelVolume() {
         return maxFuelVolume;
     }
 
-    public void setMaxFuelVolume(int maxFuelVolume) {
+    public void setMaxFuelVolume(float maxFuelVolume) {
         this.maxFuelVolume = maxFuelVolume;
     }
 
