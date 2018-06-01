@@ -7,13 +7,13 @@ import java.sql.Timestamp;
 @Entity
 public class Vehicle {
     @Id
-    public String vin;
-    public String make;
-    public String model;
-    public int year;
-    public int redlineRpm;
-    public int maxFuelVolume;
-    public Timestamp lastServiceDate;
+    private String vin;
+    private String make;
+    private String model;
+    private int year;
+    private int redlineRpm;
+    private int maxFuelVolume;
+    private Timestamp lastServiceDate;
 
     protected Vehicle(){
 
