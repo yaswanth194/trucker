@@ -1,5 +1,6 @@
 package egen.project.controller;
 
+import egen.project.entity.Alerts;
 import egen.project.entity.Vehicle;
 import egen.project.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,5 @@ public class VehicleController {
         return vehicleService.getAllVehicles();
 
     }
+
 }
