@@ -9,10 +9,10 @@ public class Reading {
     @Id
     private String id;
     private String vin;
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
     private Timestamp timestamp;
-    private float fuelVolume;
+    private double fuelVolume;
     private float speed;
     private float engineHp;
     private boolean checkEngineLightOn;
@@ -26,8 +26,8 @@ public class Reading {
 
     }
 
-    public Reading(String vin, float latitude, float longitude, Timestamp timestamp, float fuelVolume, float speed, float engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, boolean engineCoolantLow, float engineRpm, Tires tires) {
-        this.id=UUID.randomUUID().toString();
+    public Reading(String id, String vin, double latitude, double longitude, Timestamp timestamp, double fuelVolume, float speed, float engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, boolean engineCoolantLow, float engineRpm, Tires tires) {
+        this.id = id;
         this.vin = vin;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -58,19 +58,19 @@ public class Reading {
         this.vin = vin;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -82,11 +82,11 @@ public class Reading {
         this.timestamp = timestamp;
     }
 
-    public float getFuelVolume() {
+    public double getFuelVolume() {
         return fuelVolume;
     }
 
-    public void setFuelVolume(float fuelVolume) {
+    public void setFuelVolume(double fuelVolume) {
         this.fuelVolume = fuelVolume;
     }
 

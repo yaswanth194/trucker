@@ -26,6 +26,7 @@ public class ReadingServiceImpl implements ReadingService {
 
     @Autowired
     AlertRepository alertRepository;
+
     @Transactional
     public void update(Reading read) {
         readingRepository.save(read);
