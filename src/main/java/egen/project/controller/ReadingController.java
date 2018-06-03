@@ -1,5 +1,6 @@
 package egen.project.controller;
 
+import egen.project.entity.GeoPostion;
 import egen.project.entity.Reading;
 import egen.project.service.ReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://mocker.egen.io")
@@ -26,7 +28,7 @@ public class ReadingController {
         readingService.checkAlerts(read);
     }
     @GetMapping(value="/{vin}")
-    public List<Reading> getReadingsForThirtyMinutes(@PathVariable("vin") String vin){
+    public List<GeoPostion> getReadingsForThirtyMinutes(@PathVariable("vin") String vin){
         return readingService.getAllReadings(vin);
 
     }

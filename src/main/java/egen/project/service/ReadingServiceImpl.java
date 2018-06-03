@@ -4,6 +4,7 @@ import egen.project.Repository.AlertRepository;
 import egen.project.Repository.ReadingRepository;
 import egen.project.Repository.VehicleRepository;
 import egen.project.entity.Alerts;
+import egen.project.entity.GeoPostion;
 import egen.project.entity.Reading;
 import egen.project.entity.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
@@ -58,9 +56,19 @@ public class ReadingServiceImpl implements ReadingService {
     }
 
     @Transactional
-    public List<Reading> getAllReadings(String vin){
+    public List<GeoPostion> getAllReadings(String vin){
         Calendar calendar = Calendar.getInstance();
         Date now =calendar.getTime();
-        return readingRepository.findCurrentTime(vin,new Timestamp(now.getTime()));
+        List<Reading> allAlerts= readingRepository.findCurrentTime(vin,new Timestamp(now.getTime()));
+        List<GeoPostion> geoPostions=new ArrayList<GeoPostion>();
+        for(Reading tempReading:allAlerts){
+            GeoPostion geoPostion=new GeoPostion();
+            geoPostion.setLatitude(tempReading.getLatitude());
+            geoPostion.setLongitude(tempReading.getLongitude());
+            geoPostion.setTimestamp(tempReading.getTimestamp());
+            geoPostions.add(geoPostion);
+        }
+        return geoPostions;
+
     }
 }

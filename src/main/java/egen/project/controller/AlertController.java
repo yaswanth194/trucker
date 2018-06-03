@@ -15,6 +15,12 @@ public class AlertController {
     @Autowired
     AlertService alertService;
 
+    @GetMapping()
+    public List<Alerts> getAlertsForTwoHours(){
+        return alertService.getAllAlertsForTwoHours();
+
+    }
+
     @RequestMapping(method = RequestMethod.GET,value="/{vin}")
     public List<Alerts> listAllAlerts(@PathVariable("vin") String vin){
         List<Alerts> returnAlerts= alertService.getAllAlerts(vin);
