@@ -17,7 +17,7 @@ public class AlertServiceImpl implements AlertService {
 
     @Transactional
     public List<Alerts> getAllAlerts(String vin){
-        List<Alerts> alertsList= alertRepository.findByVin(vin);
+        List<Alerts> alertsList= alertRepository.findALLByVin(vin);
         //List<Alerts> actualAlertsList=alertsList.get();
         return alertsList;
 

@@ -7,6 +7,11 @@ import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://mocker.egen.io")
 @RequestMapping(value="/readings")
@@ -19,8 +24,10 @@ public class ReadingController {
         readingService.update(read);
 
         readingService.checkAlerts(read);
-
-
+    }
+    @GetMapping(value="/{vin}")
+    public List<Reading> getReadingsForThirtyMinutes(@PathVariable("vin") String vin){
+        return readingService.getAllReadings(vin);
 
     }
 }

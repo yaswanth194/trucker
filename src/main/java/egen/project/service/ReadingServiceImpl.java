@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -54,8 +55,12 @@ public class ReadingServiceImpl implements ReadingService {
         if(read.isEngineCoolantLow()||read.isCheckEngineLightOn()){
             alertRepository.save(new Alerts(read.getVin(),"LOW",new Timestamp(now.getTime())));
         }
+    }
 
-
-
+    @Transactional
+    public List<Reading> getAllReadings(String vin){
+        Calendar calendar = Calendar.getInstance();
+        Date now =calendar.getTime();
+        return readingRepository.findCurrentTime(vin,new Timestamp(now.getTime()));
     }
 }

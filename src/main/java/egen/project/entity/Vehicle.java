@@ -11,14 +11,14 @@ public class Vehicle {
     private String make;
     private String model;
     private int year;
-    private int readlineRpm;
+    private float readlineRpm;
     private float maxFuelVolume;
     private Timestamp lastServiceDate;
 
     protected Vehicle(){
 
     }
-    Vehicle(String vin, String make, String model, int year, int readlineRpm, float maxFuelVolume, Timestamp lastServiceDate){
+    Vehicle(String vin, String make, String model, int year, float readlineRpm, float maxFuelVolume, Timestamp lastServiceDate){
         this.vin=vin;
         this.make=make;
         this.model=model;
@@ -60,11 +60,11 @@ public class Vehicle {
         this.year = year;
     }
 
-    public int getReadlineRpm() {
+    public float getReadlineRpm() {
         return readlineRpm;
     }
 
-    public void setReadlineRpm(int readlineRpm) {
+    public void setReadlineRpm(float readlineRpm) {
         this.readlineRpm = readlineRpm;
     }
 

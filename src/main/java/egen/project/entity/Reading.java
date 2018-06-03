@@ -2,28 +2,32 @@ package egen.project.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.UUID;
 
 @Entity
 public class Reading {
     @Id
+    private String id;
     private String vin;
-    private int latitude;
-    private int longitude;
+    private float latitude;
+    private float longitude;
     private Timestamp timestamp;
     private float fuelVolume;
-    private int speed;
-    private int engineHp;
+    private float speed;
+    private float engineHp;
     private boolean checkEngineLightOn;
     private boolean cruiseControlOn;
     private boolean engineCoolantLow;
-    private int engineRpm;
+    private float engineRpm;
     private Tires tires;
 
     protected Reading() {
+        this.id=UUID.randomUUID().toString();
 
     }
 
-    public Reading(String vin, int latitude, int longitude, Timestamp timestamp, float fuelVolume, int speed, int engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, boolean engineCoolantLow, int engineRpm, Tires tires) {
+    public Reading(String vin, float latitude, float longitude, Timestamp timestamp, float fuelVolume, float speed, float engineHp, boolean checkEngineLightOn, boolean cruiseControlOn, boolean engineCoolantLow, float engineRpm, Tires tires) {
+        this.id=UUID.randomUUID().toString();
         this.vin = vin;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -38,6 +42,14 @@ public class Reading {
         this.tires = tires;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getVin() {
         return vin;
     }
@@ -46,19 +58,19 @@ public class Reading {
         this.vin = vin;
     }
 
-    public int getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
@@ -78,19 +90,19 @@ public class Reading {
         this.fuelVolume = fuelVolume;
     }
 
-    public int getSpeed() {
+    public float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(float speed) {
         this.speed = speed;
     }
 
-    public int getEngineHp() {
+    public float getEngineHp() {
         return engineHp;
     }
 
-    public void setEngineHp(int engineHp) {
+    public void setEngineHp(float engineHp) {
         this.engineHp = engineHp;
     }
 
@@ -118,11 +130,11 @@ public class Reading {
         this.engineCoolantLow = engineCoolantLow;
     }
 
-    public int getEngineRpm() {
+    public float getEngineRpm() {
         return engineRpm;
     }
 
-    public void setEngineRpm(int engineRpm) {
+    public void setEngineRpm(float engineRpm) {
         this.engineRpm = engineRpm;
     }
 

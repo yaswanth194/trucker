@@ -18,7 +18,6 @@ public class AlertController {
     @RequestMapping(method = RequestMethod.GET,value="/{vin}")
     public List<Alerts> listAllAlerts(@PathVariable("vin") String vin){
         List<Alerts> returnAlerts= alertService.getAllAlerts(vin);
-        System.out.println(returnAlerts);
         return returnAlerts;
     }
 }
