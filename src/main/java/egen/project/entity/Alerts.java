@@ -16,7 +16,7 @@ public class Alerts implements Serializable {
     private String priority;
     private Timestamp timestamp;
 
-    protected Alerts(){
+    public Alerts(){
         this.alertId=UUID.randomUUID().toString();
     }
 

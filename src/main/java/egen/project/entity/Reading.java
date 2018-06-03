@@ -21,7 +21,7 @@ public class Reading {
     private float engineRpm;
     private Tires tires;
 
-    protected Reading() {
+    public Reading() {
         this.id=UUID.randomUUID().toString();
 
     }

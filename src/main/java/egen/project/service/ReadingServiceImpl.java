@@ -38,7 +38,7 @@ public class ReadingServiceImpl implements ReadingService {
         Optional<Vehicle> temp=vehicleRepository.findById(read.getVin());
         Calendar calendar = Calendar.getInstance();
         Date now =calendar.getTime();
-        if(read.getEngineRpm()>temp.get().getReadlineRpm()){
+        if(read.getEngineRpm()>temp.get().getRedlineRpm()){
             alertRepository.save(new Alerts(read.getVin(),"HIGH",new Timestamp(now.getTime())));
         }
         if(read.getFuelVolume()<((10*temp.get().getMaxFuelVolume())/100)){

@@ -11,7 +11,7 @@ public class Tires {
     private int rearLeft;
     private int rearRight;
 
-    protected Tires(){
+    public Tires(){
 
     }
 
