@@ -1,5 +1,6 @@
 package egen.project.service;
 
+import egen.project.Exception.ResourceNotFoundException;
 import egen.project.Repository.AlertRepository;
 import egen.project.entity.Alerts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ public class AlertServiceImpl implements AlertService {
     @Transactional
     public List<Alerts> getAllAlerts(String vin){
         List<Alerts> alertsList= alertRepository.findAllByVin(vin);
-        //List<Alerts> actualAlertsList=alertsList.get();
+        if(alertsList.isEmpty()){
+            throw new ResourceNotFoundException("Vin "+vin+" Not Found");
+        }
         return alertsList;
 
 
@@ -31,7 +34,11 @@ public class AlertServiceImpl implements AlertService {
     public List<Alerts> getAllAlertsForTwoHours() {
         Calendar calendar = Calendar.getInstance();
         Date now =calendar.getTime();
-        return alertRepository.getAlertsForTwoHours(new Timestamp(now.getTime()));
+        List<Alerts> allAlerts= alertRepository.getAlertsForTwoHours(new Timestamp(now.getTime()));
+        if(allAlerts.isEmpty()){
+            throw new ResourceNotFoundException("No Alerts for last two hours");
+        }
+        return allAlerts;
 
     }
 }

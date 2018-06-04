@@ -1,5 +1,6 @@
 package egen.project.service;
 
+import egen.project.Exception.ResourceNotFoundException;
 import egen.project.Repository.AlertRepository;
 import egen.project.Repository.VehicleRepository;
 import egen.project.entity.Alerts;
@@ -25,7 +26,13 @@ public class VehicleServiceImple implements VehicleService {
 
     @Transactional
     public List<Vehicle> getAllVehicles() {
-        return (List<Vehicle>) vehicleRepository.findAll();
+        List<Vehicle> allVehicles= (List<Vehicle>) vehicleRepository.findAll();
+
+        if(allVehicles.isEmpty()){
+            throw new ResourceNotFoundException("There are no Vehicles");
+        }
+
+        return allVehicles;
     }
 
 }

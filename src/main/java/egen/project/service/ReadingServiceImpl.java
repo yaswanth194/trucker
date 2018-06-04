@@ -1,5 +1,6 @@
 package egen.project.service;
 
+import egen.project.Exception.ResourceNotFoundException;
 import egen.project.Repository.AlertRepository;
 import egen.project.Repository.ReadingRepository;
 import egen.project.Repository.VehicleRepository;
@@ -61,6 +62,9 @@ public class ReadingServiceImpl implements ReadingService {
         Calendar calendar = Calendar.getInstance();
         Date now =calendar.getTime();
         List<Reading> allAlerts= readingRepository.findCurrentTime(vin,new Timestamp(now.getTime()));
+        if(allAlerts.isEmpty()){
+            throw new ResourceNotFoundException("VIN "+vin+" doesn't exist");
+        }
         List<GeoPostion> geoPostions=new ArrayList<GeoPostion>();
         for(Reading tempReading:allAlerts){
             GeoPostion geoPostion=new GeoPostion();
