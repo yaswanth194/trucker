@@ -1,5 +1,6 @@
 package egen.project.service;
 
+import egen.project.Exception.NoContentFoundException;
 import egen.project.Exception.ResourceNotFoundException;
 import egen.project.Repository.AlertRepository;
 import egen.project.Repository.VehicleRepository;
@@ -29,7 +30,7 @@ public class VehicleServiceImple implements VehicleService {
         List<Vehicle> allVehicles= (List<Vehicle>) vehicleRepository.findAll();
 
         if(allVehicles.isEmpty()){
-            throw new ResourceNotFoundException("There are no Vehicles");
+            throw new NoContentFoundException("There are no Vehicles");
         }
 
         return allVehicles;

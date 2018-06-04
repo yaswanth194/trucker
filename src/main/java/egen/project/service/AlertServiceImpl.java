@@ -1,5 +1,6 @@
 package egen.project.service;
 
+import egen.project.Exception.NoContentFoundException;
 import egen.project.Exception.ResourceNotFoundException;
 import egen.project.Repository.AlertRepository;
 import egen.project.entity.Alerts;
@@ -36,7 +37,7 @@ public class AlertServiceImpl implements AlertService {
         Date now =calendar.getTime();
         List<Alerts> allAlerts= alertRepository.getAlertsForTwoHours(new Timestamp(now.getTime()));
         if(allAlerts.isEmpty()){
-            throw new ResourceNotFoundException("No Alerts for last two hours");
+            throw new NoContentFoundException("No Alerts for last two hours");
         }
         return allAlerts;
 
