@@ -1,5 +1,5 @@
 **/.idea
-**/.iml
+
 **/node_modules
 **/bower_components
 **/.tmp
@@ -12,3 +12,4 @@
 **/RemoteSystemsTempFiles
 
 **/target/*
+**/src/main/resources/*
